@@ -1,0 +1,82 @@
+
+
+<div class="container">
+    <div class="row rounded">
+               <ul class="nav justify-content-center">
+                        <li class="nav-item">
+                            <button id="botonCategoria" type="button" class="btn btn-outline-danger">Todos</button>
+                        </li>
+                        <li class="nav-item">
+                            <button id="botonCategoria" type="button" class="btn btn-outline-danger">Vegano</button>
+                        </li>
+                        <li class="nav-item">
+                            <button id="botonCategoria" type="button" class="btn btn-outline-danger">Junior</button>
+                        </li>
+                        <li class="nav-item">
+                            <button id="botonCategoria" type="button" class="btn btn-outline-danger">Big Ligas</button>
+                        </li>
+                        <li class="nav-item">
+                            <button id="botonCategoria" type="button" class="btn btn-outline-danger">Acompañantes</button>
+                        </li>
+                        <li class="nav-item">
+                            <button id="botonCategoria" type="button" class="btn btn-outline-danger">Bebidas</button>
+                        </li>
+                        <li class="nav-item">
+                            <button id="botonCategoria" type="button" class="btn btn-outline-danger">Alcohol</button>
+                        </li>
+                </ul>
+     
+        {{#each products.payload}}
+        
+    <div class=" col-md-4  pt-3 pb-2  p-3 mb-2 rounded">
+            <div class="col">
+                <div class="card text-center bg-white">
+                    <a href="/products/{{this._id}}" class="text-decoration-none">
+                        <img src="{{this.thumbnails}}" class="imagen-producto" alt="{{this.title}}">
+                    </a>
+                    <div class="card-body justify-content-center">
+                        <h5>{{this.title}}</h5>
+                            <p>${{this.price}}</p>
+                            <button class="btn btn-outline-danger" onclick="agregarProductoAlCarrito('{{product._id}}')">Agregar </button>
+                    </div>
+                </div>
+            </div>
+    </div>
+            
+        {{/each}}
+    </div>
+    <div class="row my-5">
+        <div class="col">
+            <nav>
+                <ul class="pagination justify-content-center">
+                    {{#if products.hasPrevPage}}
+                        <li class="page-item">
+                            <a class="page-link" href="{{products.prevLink}}"><<</a>
+                        </li>
+                    {{/if}}
+                    {{#if products.hasPrevPage}}
+                        <li class="page-item">
+                            <a class="page-link" href="{{products.prevLink}}">{{products.prevPage}}</a>
+                        </li>    
+                    {{/if}}
+                    <li class="page-item">
+                        <a class="page-link">{{products.page}}</a>
+                    </li>
+                    {{#if products.hasNextPage}}
+                        <li class="page-item">
+                            <a class="page-link" href="{{products.nextLink}}">{{products.nextPage}}</a>
+                        </li>    
+                    {{/if}}
+                    {{#if products.hasNextPage}}
+                        <li class="page-item">
+                            <a class="page-link" href="{{products.nextLink}}">>></a>
+                        </li>
+                    {{/if}}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<script src="/js/cart.js"></script>
+<script src="/js/categorias.js"></script>

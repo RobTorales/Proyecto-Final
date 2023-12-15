@@ -1,0 +1,29 @@
+<div class="container-login">
+    <div class="div-login rounded">
+        <div class="login">
+            <h2>Iniciá Sesión!</h2>
+            <div class="logo-login">
+                <img src="/images/Burger Factory.png" alt="Burger Factory" width="320">
+            </div>
+            <form method="post" action="/api/sessions/login">
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="text" class="form-control" id="email">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password">
+                </div>
+                <div class="div-boton">
+                    <button type="button" class="btn btn-outline-danger" id="btnLogIn">Iniciar Sesión</button>
+                    <p class="my-3">¿No tenés Usuario? <a href="/register"><b>Registrate</b></a></p>
+                    <p>Ingresar con: </p>
+                    <button class="btn btn-outline-danger"><a class="boton-github" href="/api/sessions/github" ><i class="bi bi-github"></i>GitHub</a></button>
+                </div>
+                
+            </form>
+        </div>
+</div>
+        
+        
+<script src="js/login.js"></script> 
