@@ -37,7 +37,9 @@
                     <div class="card-body justify-content-center">
                         <h5>{{this.title}}</h5>
                             <p>${{this.price}}</p>
-                            <button class="btn btn-outline-danger" onclick="agregarProductoAlCarrito('{{product._id}}')">Agregar </button>
+                            <div class="div-boton">
+                                <button class="btn btn-outline-danger" onclick="agregarProductoAlCarrito('{{product._id}}')">Agregar </button>
+                            </div>
                     </div>
                 </div>
             </div>
