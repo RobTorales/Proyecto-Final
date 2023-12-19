@@ -15,9 +15,9 @@ class AuthController {
     async login(req, res, next) {
       try {
         const { email, password } = req.body;
-        const userData = await this.AuthServices.LoginUser(email, password);
+        const userData = await this.AuthServices.login(email, password);
         req.logger.info("User data retrieved:", userData);
-  
+
         if (!userData || !userData.user) {
           req.logger.error("Invalid credentials");
           const customeError = new CustomError({

@@ -9,7 +9,7 @@ class AuthServices {
         this.SecretKey = PRIVATE_KEY;
     }
 
-    async LoginUser(email, password) {
+    async login(email, password) {
       const user = await this.UserManager.login(email, password);
       if (!user) {
         return null;

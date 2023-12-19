@@ -1,10 +1,12 @@
 import { Router } from "express";
-import { createSession } from "../controllers/payments.controller.js";
+import {createPayment, handlePaymentSuccess, } from "../controllers/payments.controller.js";
 
-const router = Router();
+const paymentsRouter = Router();
 
-router.get("/create-checkout-session", createSession);
-router.get("/succes", (req, res) => res.send("succes"));
-router.get("/cancel", (req, res) => res.send ("calcel"));
+paymentsRouter.post("/create-checkout-session", createPayment);
 
-export default router;
+paymentsRouter.get("/payment-success", handlePaymentSuccess);
+
+paymentsRouter.get("/cancel", (req, res) => {});
+
+export default paymentsRouter;

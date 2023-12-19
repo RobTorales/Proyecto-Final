@@ -17,6 +17,7 @@ import smsRouter from "./routes/sms.router.js";
 import mockingRouter from "./mocking/mock.router.js";
 import logsRouter from "./routes/logs.router.js";
 import viewsRouter from "./routes/views.router.js";
+import paymentsRouter from "./routes/payment.router.js";
 import session from "express-session";
 import { MONGODB_CNX_STR, PORT, SECRET_SESSIONS } from "./config/config.js";
 import cookieParser from "cookie-parser";
@@ -91,6 +92,7 @@ app.use("/api/sms", smsRouter);
 app.use("/", viewsRouter);
 app.use("/loggerTest", logsRouter)
 app.use("/apidocs",swaggerUIExpress.serve, swaggerUIExpress.setup(specs));
+app.use("/payment", paymentsRouter)
 
 
 
