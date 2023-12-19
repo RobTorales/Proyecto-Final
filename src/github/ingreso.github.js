@@ -2,7 +2,7 @@ import passport from "passport";
 import GitHubStrategy from "passport-github2";
 import userModel from "../dao/models/user.model.js"
 import { CLIENT_ID_GITHUB, CLIENT_SECRET_GITHUB } from "../config/config.js";
-import AuthServices from "../services/auth.services.js";
+import AuthServices from "../services/authService.js";
 
 const initializeGitHubPassport = () => {
     

@@ -1,28 +1,26 @@
- <div class="nav-products">
-      <p class="info-off">30% off site wide and free shipping with promo code:
-        SUMMERSALE</p>
-      <h1 class="title-home">SONS</h1>
-      <div class="container-nav">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/products">Products</a></li>
-          <li><a href="/profile">Profile</a></li>
-          <li><a href="/realtimeproducts">realtimeproducts</a></li>
-          <li><button id="cartButton">CART</button></li>
-          <li><a href="/upload/{{userId}}">Upload Files</a></li>
-          <li><a href="/adminController">Admin Controller</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="container-profile">
-      <div class="user-data">
-        <h1>Bienvenido, {{user.first_name}} {{user.last_name}}!</h1>
-        <p>Tu correo electrónico es: {{user.email}}</p>
-        <p>Tu rol es: {{user.role}}</p>
-      </div>
-      <form action="/api/sessions/logout" method="POST">
-        <button type="submit" class="btn-logout">Cerrar Sesión</button>
-      </form>
-    </div>
+<div class="container">
+      <div class="bg-white rounded p-1 mb-5">
+            <div class="col-md-4 offset-md-4">
+        <div class="user-data">
+          <h1 class="text-dark" >Bienvenido, {{user.full_name}} {{user.first_name}}</h1>
+          <p class="text-dark">Tu correo electrónico es: {{user.email}}</p>
+          <p class="text-dark">Tu rol es: {{user.role}}</p>
+          
+        </div>
+        <div class="mb-3">
+        <div class="color1" >
+            
+            <button class="btn btn-outline-danger"><a href="/restore"></a>Cambiar clave</a></button>
+            
+            </div>
+                </div>
+                <form action="/api/sessions/logout" method="POST" class="col-md-4 offset-md-4">
+                    <button type="submit" class="btn btn-outline-danger">Cerrar sesion</button>
+                </form>
+                </div>
+            </div>
+        </div>
+        
+</div>
 
     <script src="/js/cart.js"></script>

@@ -1,0 +1,53 @@
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                {{#each products}}
+                    <tr>
+                        <td><img src="{{this.product.thumbnails}}" alt="{{this.product.title}}" width="48"></td>
+                        <td class="align-middle">{{this.product.title}}</td>
+                        <td class="align-middle">{{this.product.description}}</td>
+                        <td class="align-middle">${{this.product.price}}</td>
+                        <button class="boton" onclick="eliminarProducto('{{product.product._id}}')"><p class="p">Eliminar </p></button>
+                    </tr>
+                {{/each}}
+            </table>
+            <button class="btn btn-outline-danger" id="pago">finalizar compra</button>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const paymentButton = document.getElementById("payment");
+
+  if (paymentButton) {
+    paymentButton.addEventListener("click", async () => {
+      const cartId = await obtenerIdCarrito();
+
+      if (!cartId) {
+        console.error("El ID del carrito es inválido o no se ha encontrado.");
+        return;
+      }
+
+      const response = await fetch("/payment/create-checkout-session", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ cartId: cartId }) 
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        window.location.href = data.url; 
+      } else {
+        console.error("Error al iniciar la sesión de pago.");
+      }
+    });
+  }
+});
+
+</script>
