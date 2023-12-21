@@ -55,7 +55,7 @@ class AuthController {
       return res.status(200).json({
         status: "success",
         user: userData.user,
-        redirect: "/products",
+        redirect: "/",
       });
     } catch (error) {
       req.logger.error("An error occurred:", error);
@@ -68,7 +68,7 @@ class AuthController {
       if (req.user) {
         req.session.user = req.user;
         req.session.loggedIn = true;
-        return res.redirect("/products");
+        return res.redirect("/");
       } else {
         return res.redirect("/login");
       }

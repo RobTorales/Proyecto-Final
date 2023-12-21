@@ -46,10 +46,10 @@
             
         {{/each}}
     </div>
-    <div class="row my-5">
-        <div class="col">
-            <nav>
-                <ul class="pagination justify-content-center">
+    <div class="row my-5 bg-white">
+        <div class="col bg-white">
+            <nav >
+                <ul class="pagination justify-content-center bg-white">
                     {{#if products.hasPrevPage}}
                         <li class="page-item">
                             <a class="page-link" href="{{products.prevLink}}"><<</a>
@@ -80,47 +80,3 @@
 </div>
 
 <script src="../public/js/cart.js"></script>
-<script>
-$(document).ready(function() {
-
-  function searchProducts(keyword) {
-    $.ajax({
-      url: '/search?keyword=' + keyword,
-      method: 'GET',
-      dataType: 'json',
-      success: function(data) {
-        displayResults(data);
-      },
-      error: function(error) {
-        console.error('Error en la búsqueda:', error);
-      }
-    });
-  }
-
-
-  function displayResults(results) {
-    const resultsContainer = $('#searchResults');
-    resultsContainer.empty();
-
-    if (results.length === 0) {
-      resultsContainer.append('<p>No se encontraron productos.</p>');
-    } else {
-      results.forEach(function(product) {
-        resultsContainer.append('<p>' + product.title + ': ' + product.description + ' - $' + product.price + '</p>');
-      });
-    }
-  }
-
-
-  $('#searchInput').on('input', function() {
-    const keyword = $(this).val();
-    if (keyword.length >= 3) {
-
-      searchProducts(keyword);
-    } else {
-
-      $('#searchResults').empty();
-    }
-  });
-});
-</script>
